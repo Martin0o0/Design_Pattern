@@ -5,7 +5,8 @@
         - Pushish-Subscribe 패턴과 다른점?
             - **Publisher**는 메시지를 보낼 때 **각각의 메시지에 Topic 이름을 부여할 수 있는데, 이때 Subscriber는 이 Topic 이름을 사용하여 원하는 정보만 선택적으로 수신하는 방식 ⇒ 즉, 구독자가 원하는 Topic을 구독하는 형식으로 원한는 관심사의 값들만 선택적으로 받는다.**
 
-![](../../../../../../../var/folders/4w/krkl_gpx1dl5j0rhpkb7nc340000gn/T/TemporaryItems/NSIRD_screencaptureui_gmOpqP/스크린샷 2023-08-24 오후 3.00.32.png)
+![Uploading 스크린샷 2023-08-24 오후 3.02.19.png…]()
+
 - **Subject** : Observer를 알고 있는 주체, Observer를 더하거나 뺄수 있음
 - **Observer** : Subject의 변화에 관심을 가지는 객체, 갱신에 필요한 인터페이스 정의, 객체들의 일관성을 유지
 - **ConcreteSubject** : ConcreteObserver에게 알려주어야하는 상태가 변경될때 통보 (주로 List로 Observer관리)
