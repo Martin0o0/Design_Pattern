@@ -2,28 +2,22 @@ package Singleton;
 
 public class MultiThreadSingleton {
     public static void main(String[] args) {
-        Thread thread1 = new Thread( () -> {
-            MultiThreadingSingleton multiThreadingSingleton = MultiThreadingSingleton.getInstance();
-        });
 
+        SingletonThread singletonThread1 = new SingletonThread();
 
-        Thread thread2 = new Thread(() -> {
-            MultiThreadingSingleton multiThreadingSingleton = MultiThreadingSingleton.getInstance();
-        });
-        thread1.start();
-        thread2.start();
+        SingletonThread singletonThread2 = new SingletonThread();
+        singletonThread1.start();
+        singletonThread2.start();
 
         try {
-            thread1.join();
-            thread2.join();
+            singletonThread1.join();
+            singletonThread2.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
         // 쓰레드 1과 쓰레드 2에서 생성한 인스턴스가 동일한지 확인
-        MultiThreadingSingleton multiThreadingSingleton1 = MultiThreadingSingleton.getInstance();
-        MultiThreadingSingleton multiThreadingSingleton2 = MultiThreadingSingleton.getInstance();
-
+        MultiThreadingSingleton multiThreadingSingleton1 = singletonThread1.getMultiThreadingSingleton();
+        MultiThreadingSingleton multiThreadingSingleton2 = singletonThread2.getMultiThreadingSingleton();
         System.out.println("쓰레드 1과 쓰레드 2에서 생성한 인스턴스는 같은가? " + (multiThreadingSingleton1 == multiThreadingSingleton2));
     }
 }
